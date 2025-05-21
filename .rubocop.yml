@@ -1,0 +1,33 @@
+inherit_from: .rubocop_todo.yml
+
+plugins:
+  - rubocop-rspec
+  - rubocop-rake
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - "__*/**/*"
+    - "bin/__*"
+
+Metrics/AbcSize:
+  # Max: 32
+  Exclude:
+    - "examples/**/*"
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: true
+  Max: 8

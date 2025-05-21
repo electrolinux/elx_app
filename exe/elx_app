@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "rainbow"
+
+require "elx_app"
+
+# Basic Application using ElxApp framework gem
+class BasicApp < ElxApp::Application
+  def run
+    puts Rainbow("Simple application using `elx_app` gem!").orangered
+    cnt = args.length
+    puts "Oh, you give me #{cnt} argument#{"s" if cnt > 1}:" if args.any?
+    args.each do |key|
+      puts " - #{key}"
+    end
+  end
+end
+
+def main
+  app = BasicApp.new
+  app.parse(ARGV)
+  app.run
+rescue StandardError => e
+  app.logger&.error("Error: #{e.message}")
+  puts Rainbow(e.message).red.bright
+  exit 1
+end
+
+main if $PROGRAM_NAME == __FILE__

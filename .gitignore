@@ -1,0 +1,21 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+# rspec failure tracking
+.rspec_status
+
+# author's prefs
+.env
+__*
+.__*
+
+# not-yet-ready stuff
+/examples/
+/spec/integration/
+/spec/integration_helper.rb
